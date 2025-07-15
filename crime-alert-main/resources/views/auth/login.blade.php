@@ -22,6 +22,7 @@
     </script>
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <script src="{{ asset('js/login.js') }}"></script>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/2592/2592317.png">
 </head>
 <body>
     <div class="flex flex-col md:flex-row w-full max-w-6xl bg-white rounded-2xl overflow-hidden shadow-xl">
@@ -88,6 +89,7 @@
                         class="w-full form-input py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Địa chỉ email"
                         required
+                        autocomplete="username"
                     >
                 </div>
                 
@@ -103,6 +105,7 @@
                         class="w-full form-input py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Mật khẩu"
                         required
+                        autocomplete="current-password"
                     >
                     <div class="password-toggle" id="passwordToggle">
                         <i class="far fa-eye"></i>
@@ -135,17 +138,7 @@
                 <div class="divider text-sm">HOẶC ĐĂNG NHẬP VỚI</div>
                 
                 <!-- Social Login -->
-                <div class="grid grid-cols-3 gap-4 mb-6">
-                    <a href="#" class="social-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg flex items-center justify-center">
-                        <i class="fab fa-facebook-f mr-2"></i> Facebook
-                    </a>
-                    <a href="#" class="social-btn bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg flex items-center justify-center">
-                        <i class="fab fa-google mr-2"></i> Google
-                    </a>
-                    <a href="#" class="social-btn bg-gray-800 hover:bg-black text-white py-2 px-4 rounded-lg flex items-center justify-center">
-                        <i class="fab fa-github mr-2"></i> GitHub
-                    </a>
-                </div>
+               
                 
                 <!-- Register Link -->
                 <div class="text-center text-gray-600">
@@ -157,24 +150,25 @@
     </div>
     
     <script>
-        // Password toggle functionality
+    (function() {
         const passwordToggle = document.getElementById('passwordToggle');
         const passwordInput = document.getElementById('password');
-        
-        passwordToggle.addEventListener('click', function() {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            
-            // Toggle eye icon
-            const eyeIcon = this.querySelector('i');
-            if (type === 'password') {
-                eyeIcon.classList.remove('fa-eye-slash');
-                eyeIcon.classList.add('fa-eye');
-            } else {
-                eyeIcon.classList.remove('fa-eye');
-                eyeIcon.classList.add('fa-eye-slash');
-            }
-        });
+        if(passwordToggle && passwordInput) {
+            passwordToggle.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                // Toggle eye icon
+                const eyeIcon = this.querySelector('i');
+                if (type === 'password') {
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                } else {
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                }
+            });
+        }
+    })();
     </script>
 </body>
 </html>

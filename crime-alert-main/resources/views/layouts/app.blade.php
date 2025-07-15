@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Crime Alert Web') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,9 @@
         <!-- Bootstrap 5 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/2592/2592317.png">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -42,6 +45,28 @@
             <main>
                 @yield('content')
             </main>
+
+            <!-- Footer -->
+            <footer class="bg-white border-top mt-5">
+                <div class="container py-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center text-md-start">
+                            <p class="mb-0 text-muted">
+                                <img src="https://cdn-icons-png.flaticon.com/128/2592/2592317.png" alt="Shield" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                                <strong>Hệ thống cảnh báo tội phạm</strong> 
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <p class="mb-0 text-muted">
+                                © 2025 <strong>Nhóm 5</strong>. Tất cả các quyền được bảo lưu.
+                                <a href="https://chi-trung.github.io/CV/" target="_blank" class="text-decoration-none ms-2">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/3462/3462381.png" alt="External Link" style="width: 14px; height: 14px; margin-right: 4px; vertical-align: middle;">Về chúng tôi
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- Bootstrap 5 JS bundle (for dropdown, modal, v.v.) -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
